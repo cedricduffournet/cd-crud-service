@@ -1,6 +1,6 @@
 {
   "name": "cd-crud-service",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Crud",
   "devDependencies": {
     "connect-modrewrite": "~0.6.4-pre",
