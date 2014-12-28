@@ -32,6 +32,11 @@
           method: 'DELETE',
           params: {id: '@id'},
           url: routes.urlDeleteItem
+        },
+        'paramsForm': {
+          method: 'GET',
+          params: {},
+          url: routes.urlParamsForm
         }
       };
 
@@ -48,7 +53,8 @@
         put: put,
         post: post,
         emitOnDelete: emitOnDelete,
-        deleteItem: deleteItem
+        deleteItem: deleteItem,
+        paramsForm: paramsForm
       };
 
       function findAll() {
@@ -119,6 +125,20 @@
 
         var data = api.deleteItem({id: id});
 
+        data.$promise
+          .then(function (response) {
+            deferred.resolve(response);
+          },
+          function (error) {
+            deferred.reject(error);
+          });
+        return deferred.promise;
+      }
+
+      function paramsForm() {
+
+        var deferred = $q.defer();
+        var data = api.paramsForm();
         data.$promise
           .then(function (response) {
             deferred.resolve(response);
