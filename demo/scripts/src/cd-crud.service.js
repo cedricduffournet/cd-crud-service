@@ -15,27 +15,22 @@
       var apiOptions = {
         'findAll': {
           method: 'GET',
-          params: {},
           url: routes.urlFindAll
         },
         'find': {
           method: 'GET',
-          params: {id: '@id'},
           url: routes.urlFind
         },
         'put': {
           method: 'PUT',
-          params: {id: '@id'},
           url: routes.urlPut
         },
         'deleteItem': {
           method: 'DELETE',
-          params: {id: '@id'},
           url: routes.urlDeleteItem
         },
         'paramsForm': {
           method: 'GET',
-          params: {},
           url: routes.urlParamsForm
         }
       };
@@ -57,10 +52,10 @@
         paramsForm: paramsForm
       };
 
-      function findAll() {
+      function findAll(params) {
 
         var deferred = $q.defer();
-        var data = api.findAll();
+        var data = api.findAll(params);
         data.$promise
           .then(function (response) {
             deferred.resolve(response);
